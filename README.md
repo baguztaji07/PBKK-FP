@@ -31,6 +31,6 @@ User dari sistem ini ada 2 yaitu mahasiswa dan dosen.
 3. Menyetujui atau menolak permintaan pertemuan yang dikirimkan mahasiswa melalui pesan
 
 Keterangan:
-* = optional
+*=optional
 
 # SEKIAN
