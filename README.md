@@ -16,9 +16,9 @@ User dari sistem ini ada 2 yaitu mahasiswa dan dosen.
 
 ### Fitur untuk mahasiswa:
 1. Melihat profil dosen yang didalamnya terdapat informasi :
-   a. Foto 
-   b. Nama
-   c. Informasi Kontak (No HP, Email, *Whatsapp)
+   - Foto 
+   - Nama
+   - Informasi Kontak (No HP, Email, *Whatsapp)
 2. Melihat status ketersediaan dosen yang terdiri dari :
    - Ada (Available)
    - Rapat (Meeting)
@@ -29,5 +29,8 @@ User dari sistem ini ada 2 yaitu mahasiswa dan dosen.
 1. Mengedit profil dosen
 2. Mengganti status ketersediaan dosen
 3. Menyetujui atau menolak permintaan pertemuan yang dikirimkan mahasiswa melalui pesan
+
+Keterangan:
+* = optional
 
 # SEKIAN
