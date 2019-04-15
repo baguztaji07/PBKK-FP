@@ -33,4 +33,8 @@ User dari sistem ini ada 2 yaitu mahasiswa dan dosen.
 Keterangan:
 *=optional
 
+## Use Case Diagram
+![ss1](UC.png)
+
+
 # SEKIAN
