@@ -36,5 +36,7 @@ Keterangan:
 ## Use Case Diagram
 ![ss1](UC.png)
 
+## Sitemap Aplikasi
+![ss1](Sitemap.png)
 
 # SEKIAN
