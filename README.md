@@ -40,7 +40,9 @@ Keterangan:
 ![ss1](Sitemap.png)
 
 ## Mock Up
-Login page
+### Login page
 ![login](https://user-images.githubusercontent.com/32744054/56196433-04cabb00-6061-11e9-804b-329b7691a87d.png)
+### Dosen page
+![dosen2](https://user-images.githubusercontent.com/32744054/56199929-077cde80-6068-11e9-9053-896fe96ea193.png)
 
 # SEKIAN
