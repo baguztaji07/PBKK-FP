@@ -39,4 +39,8 @@ Keterangan:
 ## Sitemap Aplikasi
 ![ss1](Sitemap.png)
 
+## Mock Up
+Login page
+![login](https://user-images.githubusercontent.com/32744054/56196433-04cabb00-6061-11e9-804b-329b7691a87d.png)
+
 # SEKIAN
