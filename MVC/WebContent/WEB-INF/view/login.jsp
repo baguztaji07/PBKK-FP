@@ -7,15 +7,28 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <title>Login</title>
 </head>
 <body>
-    Login
-    <form action="home">
-        username: <input type="text">
-        Password: <input type="password">
-        <input type="submit" value="submit">
-    </form>
+<div class="container">
+  <h2>Login</h2>
+  <form action="home">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</div>
 
 </body>
 </html>
