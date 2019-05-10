@@ -13,21 +13,21 @@ public class PlayerController {
 	
 	@RequestMapping("/")
 	public String showLogin() {
-		String hal = "Form";
+		String hal = "login";
 		
 		return hal;
 	}
 	
 	@RequestMapping("/home")
 	public String Dosen() {
-		String page = "error";
+		String page = "dosen";
 		
 		return page;
 	}
 	
 	@RequestMapping("/profil")
 	public String ProfilDosen() {
-		String profil = "playerview";
+		String profil = "profilDosen";
 		
 		return profil;
 	}
