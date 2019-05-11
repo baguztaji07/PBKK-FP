@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")
-public class mahasiswa {
+@Table(name="mahasiswa")
+public class Mahasiswa {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class mahasiswa {
 	@Column(name="password_mhs")
 	private int password_mhs;
 
-	public mahasiswa() {
+	public Mahasiswa() {
 		
 	}
 	
@@ -72,10 +72,5 @@ public class mahasiswa {
 		this.password_mhs = password_mhs;
 	}
 
-	@Override
-	public String toString() {
-		return "mahasiswa [nrp=" + nrp + ", nama=" + nama + ", email=" + email + ", foto=" + foto + ", password_mhs="
-				+ password_mhs + "]";
-	}
 	
 }

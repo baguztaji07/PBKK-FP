@@ -77,7 +77,6 @@
 			  <table class="table">
 			    <thead>
 			      <tr>
-			        <th scope="col">No</th>
 			        <th scope="col">NIP</th>
 			        <th scope="col">Nama</th>
 			        <th scope="col">Nomor Telpon</th>
@@ -86,12 +85,22 @@
 			    </thead>
 			    <tbody>
 			      <tr>
-			        <th scope="row">1</th>
 			        <td>05111640000053</td>
 			        <td>Muhammad Taufiqulsa`di</td>
 			        <td>081335803846</td>
 			        <td>taufiq1689@gmail.com</td>
+
 			      </tr>
+
+			 	  <c:forEach var="entry" items="${dosens}">
+			 	  <tr>
+			        	<td><c:out value="${entry.nip}"/></td>
+				        <td><c:out value="${entry.nama}"/></td>
+				        <td><c:out value="${entry.noTelp}"/></td>
+				        <td><c:out value="${entry.email}"/></td>
+				  </tr>
+			      </c:forEach>
+
 			    </tbody>
 			  </table>
 			</div>
