@@ -2,9 +2,9 @@ INSERT INTO `mahasiswa` (`nrp`, `nama_mhs`,`foto_mhs`,`email_mhs`,`pass_mhs`) VA
 ('05111640000116', 'Muhammad Vicky R', 'foto', 'vickyr.muhammad@gmail.com', MD5('12345678')),
 ('05111640000068', 'Bagus Aji S S', 'foto', 'baguztaji@gmail.com', MD5('12345678'));
 
-INSERT INTO `dosen` (`nip`, `nama`,`foto`,`email`,`no_telp`,`no_wa`, `pass_dosen`) VALUES
-('1', 'Muhammad Vicky R', 'foto', 'foto','foto','foto', MD5('12345678')),
-('2', 'Bagus Aji S S', 'foto', 'foto','foto','foto', MD5('12345678'));
+INSERT INTO `dosen` (`nip`, `nama`,`foto`,`email`,`no_telp`,`no_wa`, status_ketersediaan, `pass_dosen`) VALUES
+('1', 'Muhammad Vicky R', 'foto', 'foto','foto','foto', 1, MD5('12345678')),
+('2', 'Bagus Aji S S', 'foto', 'foto','foto','foto', 2, MD5('12345678'));
 
 INSERT INTO `pesan` (`id`, `isi`,`keterangan`,`nip`, nrp) VALUES
 ('01', 'Assalamualaikum...
