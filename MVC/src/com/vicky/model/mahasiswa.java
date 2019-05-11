@@ -1,4 +1,4 @@
-package com.vicky.controller;
+package com.vicky.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
