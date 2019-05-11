@@ -7,20 +7,30 @@ USE `ketersediaan_dosen`;
 -- Table structure for table `student`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `dosen`;
+DROP TABLE IF EXISTS `mahasiswa`;
 DROP TABLE IF EXISTS `pesan`;
 
-CREATE TABLE users
+CREATE TABLE mahasiswa
 (
-   id_user     		INT NOT NULL,
+   nrp     		VARCHAR(15) NOT NULL,
+   nama_mhs 		VARCHAR(50) NOT NULL,
+   foto_mhs  	        VARCHAR(200) NOT NULL,
+   email_mhs	        VARCHAR(50) NOT NULL,
+   pass_mhs 	     	VARCHAR(32) NOT NULL,
+   PRIMARY KEY (nrp)
+);
+
+CREATE TABLE dosen
+(
+   nip     		VARCHAR(20) NOT NULL,
    nama 		VARCHAR(50) NOT NULL,
    foto  	        VARCHAR(200) NOT NULL,
    email	        VARCHAR(50) NOT NULL,
    no_telp		VARCHAR(15) NOT NULL,
    no_wa 		VARCHAR(15),
-   pass 	     	VARCHAR(32) NOT NULL,
-   role			BOOLEAN NOT NULL,
-   PRIMARY KEY (id_user)
+   pass_dosen 	     	VARCHAR(32) NOT NULL,
+   PRIMARY KEY (nip)
 );
 
 CREATE TABLE pesan
@@ -28,13 +38,14 @@ CREATE TABLE pesan
    id         		INT NOT NULL,
    isi 			TEXT NOT NULL,
    keterangan  	        BOOLEAN NOT NULL,
-   id_user		INT NOT NULL,
+   nip			VARCHAR(20) NOT NULL,
+   nrp			VARCHAR(15) NOT NULL,   
    PRIMARY KEY (id)
 );
 
 
-ALTER TABLE pesan ADD CONSTRAINT FK_pesan_users FOREIGN KEY (id_user)
-REFERENCES users (id_user) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE pesan ADD CONSTRAINT FK_pesan_dosen FOREIGN KEY (nip)
+REFERENCES dosen (nip) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 ALTER TABLE pesan ADD CONSTRAINT FK_pesan_mahasiswa FOREIGN KEY (nrp)
 REFERENCES mahasiswa (nrp) ON DELETE RESTRICT ON UPDATE RESTRICT;
