@@ -29,6 +29,7 @@ CREATE TABLE dosen
    email	        VARCHAR(50) NOT NULL,
    no_telp		VARCHAR(15) NOT NULL,
    no_wa 		VARCHAR(15),
+   status_ketersediaan INT NOT NULL,
    pass_dosen 	     	VARCHAR(32) NOT NULL,
    PRIMARY KEY (nip)
 );
