@@ -24,11 +24,11 @@ public class dbservlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// setup connection variables
-		String user = "coba";
+		String user = "root";
 		String pass = "";
 		
 		String jdbcUrl = "jdbc:mysql://localhost:3306/ketersediaan_dosen?useSSL=false";
-		String driver = "com.mysql.jdbc.Driver";
+		String driver = "com.mysql.cj.jdbc.Driver";
 		
 		// get connection to database
 		try {

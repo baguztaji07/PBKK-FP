@@ -13,14 +13,14 @@ public class PlayerController {
 	
 	@RequestMapping("/")
 	public String showLogin() {
-		String hal = "login";
+		String page = "loginMahasiswa";
 		
-		return hal;
+		return page;
 	}
 	
-	@RequestMapping("/home")
+	@RequestMapping("/homeMahasiswa")
 	public String Dosen() {
-		String page = "dosen";
+		String page = "homeMahasiswa";
 		
 		return page;
 	}
