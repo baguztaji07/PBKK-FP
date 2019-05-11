@@ -1,3 +1,23 @@
+#dosenProfil{
+	margin-right:5px;
+	margin-bottom:0px;
+}
+
+@media screen and (max-width: 957px) {
+	#dosenProfil{
+	margin-right:0px;
+	margin-bottom:5px;
+	}
+}
+
+
+
+
+
+
+
+
+
 @keyframes swing {
   0% {
     transform: rotate(0deg);

@@ -61,10 +61,17 @@
           </li>
           <li>
             <a href="/Tugas-MVC/">
+              <i class="fas fa-inbox"></i>
+              <span>Inbox</span>
+            </a>
+          </li>
+          <li>
+            <a href="/Tugas-MVC/">
               <i class="fa fa-power-off"></i>
               <span>Sign Out</span>
             </a>
           </li>
+          
         </ul>
       </div>
       <!-- sidebar-menu  -->
@@ -81,29 +88,64 @@
 			        <th scope="col">Nama</th>
 			        <th scope="col">Nomor Telpon</th>
 			        <th scope="col">Email</th>
+			        <th scope="col">Action</th>
 			      </tr>
 			    </thead>
 			    <tbody>
-			      <tr>
-			        <td>05111640000053</td>
-			        <td>Muhammad Taufiqulsa`di</td>
-			        <td>081335803846</td>
-			        <td>taufiq1689@gmail.com</td>
-
-			      </tr>
-
 			 	  <c:forEach var="entry" items="${dosens}">
 			 	  <tr>
 			        	<td><c:out value="${entry.nip}"/></td>
 				        <td><c:out value="${entry.nama}"/></td>
 				        <td><c:out value="${entry.noTelp}"/></td>
 				        <td><c:out value="${entry.email}"/></td>
+						<td id="action">
+							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="far fa-user"></i></button>
+							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalMessage"><i class="fas fa-envelope"></i></button>
+						</td>		        
 				  </tr>
 			      </c:forEach>
 
 			    </tbody>
 			  </table>
 			</div>
+			
+			  <!-- The Modal -->
+		  <div class="modal fade" id="modalMessage">
+		    <div class="modal-dialog modal-xl">
+		      <div class="modal-content">
+		      
+		        <!-- Modal Header -->
+		        <div class="modal-header">
+		          <h4 class="modal-title">Kirim Pesan</h4>
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        </div>
+		        
+		        <!-- Modal body -->
+		        <div class="modal-body">
+					<form>
+					  <div class="form-group">
+					    <label for="namaInput">Nama</label>
+					    <input type="password" class="form-control" id="namaInput" placeholder="Masukan Nama">
+					  </div>
+					  <div class="form-group">
+					    <label for="NIPInput">NIP</label>
+					    <input type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP">
+					  </div>
+					  <div class="form-group">
+					    <label for="pesanInput">Pesan</label>
+					    <textarea class="form-control" id="pesanInput" rows="3"></textarea>
+					  </div>
+					</form>
+		        </div>
+		        
+		        <!-- Modal footer -->
+		        <div class="modal-footer">
+		          <button type="submit" class="btn btn-primary">Submit</button>
+		        </div>
+		        
+		      </div>
+		    </div>
+		  </div>
     </div>
 
   </main>
