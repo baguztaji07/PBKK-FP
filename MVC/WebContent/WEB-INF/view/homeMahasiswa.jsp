@@ -86,8 +86,7 @@
 			      <tr>
 			        <th scope="col">NIP</th>
 			        <th scope="col">Nama</th>
-			        <th scope="col">Nomor Telpon</th>
-			        <th scope="col">Email</th>
+			        <th scope="col">Status</th>
 			        <th scope="col">Action</th>
 			      </tr>
 			    </thead>
@@ -96,8 +95,7 @@
 			 	  <tr>
 			        	<td><c:out value="${entry.nip}"/></td>
 				        <td><c:out value="${entry.nama}"/></td>
-				        <td><c:out value="${entry.noTelp}"/></td>
-				        <td><c:out value="${entry.email}"/></td>
+				        <td><c:out value="${entry.status}"/></td>
 						<td id="action">
 							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="far fa-user"></i></button>
 							<button type="button" class="btn btn-info sendMessage" data-nip="${entry.nip}" data-nama="${entry.nama}" data-toggle="modal" data-target="#modalMessage"><i class="fas fa-envelope"></i></button>

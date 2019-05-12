@@ -24,13 +24,13 @@ CREATE TABLE mahasiswa
 CREATE TABLE dosen
 (
    nip     		VARCHAR(20) NOT NULL,
-   nama 		VARCHAR(50) NOT NULL,
-   foto  	        VARCHAR(200) NOT NULL,
-   email	        VARCHAR(50) NOT NULL,
-   no_telp		VARCHAR(15) NOT NULL,
-   no_wa 		VARCHAR(15),
-   status_ketersediaan INT NOT NULL,
-   pass_dosen 	     	VARCHAR(32) NOT NULL,
+   nama_dsn 		VARCHAR(50) NOT NULL,
+   foto_dsn  	        VARCHAR(200) NOT NULL,
+   email_dsn	        VARCHAR(50) NOT NULL,
+   no_telp_dsn		VARCHAR(15) NOT NULL,
+   no_wa_dsn 		VARCHAR(15),
+   status_ketersediaan_dsn INT NOT NULL,
+   pass_dsn 	     	VARCHAR(32) NOT NULL,
    PRIMARY KEY (nip)
 );
 

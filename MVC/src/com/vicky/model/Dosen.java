@@ -15,19 +15,30 @@ public class Dosen {
 	@Column(name="nip")
 	private String nip;
 	
-	@Column(name="nama")
+	@Column(name="nama_dsn")
 	private String nama;
 	
-	@Column(name="foto")
+	@Column(name="foto_dsn")
 	private String foto;
 	
-	@Column(name="email")
+	@Column(name="email_dsn")
 	private String email;
 	
-	@Column(name="no_telp")
+	@Column(name="no_telp_dsn")
 	private String noTelp;
 	
-	@Column(name="password_dosen")
+	@Column(name="status_ketersediaan_dsn")
+	private String status;
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Column(name="pass_dsn")
 	private String passwordDosen;
 	
 	public Dosen() {
