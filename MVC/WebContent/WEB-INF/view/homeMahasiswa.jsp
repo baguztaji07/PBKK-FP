@@ -100,7 +100,7 @@
 				        <td><c:out value="${entry.email}"/></td>
 						<td id="action">
 							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="far fa-user"></i></button>
-							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalMessage"><i class="fas fa-envelope"></i></button>
+							<button type="button" class="btn btn-info sendMessage" data-nip="${entry.nip}" data-nama="${entry.nama}" data-toggle="modal" data-target="#modalMessage"><i class="fas fa-envelope"></i></button>
 						</td>		        
 				  </tr>
 			      </c:forEach>
@@ -121,26 +121,34 @@
 		        </div>
 		        
 		        <!-- Modal body -->
-		        <div class="modal-body">
-					<form>
+		        <div class="modal-body" >
+					<form:form action="messageSend" id="formMessage" method="POST" modelAttribute="Pesan">
+					  <div class="form-group" hidden>
+					    <label for="pesanInput">status</label>
+					    <form:input path="keterangan" class="form-control" id="nrpInput" placeholder="Masukan Keterangan" value="0"></form:input>
+					  </div>		
+					  <div class="form-group" hidden>
+					    <label for="pesanInput">NRP</label>
+					    <form:input path="nrp" class="form-control" id="nrpInput" placeholder="Masukan NRP" value="05111640000116"></form:input>
+					  </div>						
 					  <div class="form-group">
-					    <label for="namaInput">Nama</label>
-					    <input type="password" class="form-control" id="namaInput" placeholder="Masukan Nama">
+					    <label>Nama</label>
+					    <input type="text" class="form-control" id="namaInput" placeholder="Masukan Nama"/>
 					  </div>
 					  <div class="form-group">
-					    <label for="NIPInput">NIP</label>
-					    <input type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP">
+					    <form:label path="nip">NIP</form:label>
+					    <form:input path="nip" type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP"/>
 					  </div>
 					  <div class="form-group">
-					    <label for="pesanInput">Pesan</label>
-					    <textarea class="form-control" id="pesanInput" rows="3"></textarea>
+					    <form:label path="pesan" for="pesanInput">Pesan</form:label>
+					    <form:textarea path="pesan" class="form-control" id="pesanInput" rows="3"></form:textarea>
 					  </div>
-					</form>
+					</form:form>
 		        </div>
 		        
 		        <!-- Modal footer -->
 		        <div class="modal-footer">
-		          <button type="submit" class="btn btn-primary">Submit</button>
+		          <button type="submit" class="btn btn-primary" onclick="$( '#formMessage' ).submit();">Submit</button>
 		        </div>
 		        
 		      </div>
