@@ -37,10 +37,10 @@
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Muhammad
-            <strong>Taufiqulsa`di</strong>
+          <span class="user-name">
+          	<c:out value="${user.nama}"/>
           </span>
-          <span class="user-role">5116100053</span>
+          <span class="user-role"><c:out value="${user.nrp}"/></span>
           <span class="user-status">
             <i class="fa fa-circle"></i>
             <span>Online</span>
@@ -66,7 +66,7 @@
             </a>
           </li>
           <li>
-            <a href="/Tugas-MVC/">
+            <a href="/Tugas-MVC/signOut">
               <i class="fa fa-power-off"></i>
               <span>Sign Out</span>
             </a>
@@ -138,7 +138,7 @@
 					  </div>		
 					  <div class="form-group" hidden>
 					    <label for="pesanInput">NRP</label>
-					    <form:input path="nrp" class="form-control" id="nrpInput" placeholder="Masukan NRP" value="05111640000116"></form:input>
+					    <form:input path="nrp" class="form-control" id="nrpInput" placeholder="Masukan NRP" value="${user.nrp}"></form:input>
 					  </div>						
 					  <div class="form-group">
 					    <label>Nama</label>

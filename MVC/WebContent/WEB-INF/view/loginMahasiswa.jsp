@@ -18,20 +18,20 @@
 </head>
 <body>
 	
-    <form action="homeMahasiswa" id="form-container">
+    <form:form action="checkMahasiswa" method="POST" id="form-container" modelAttribute="Mahasiswa">
     		<div class="text-center">
     			 <h3>Login</h3>
     		</div>
     		<div style="margin-bottom: 10px;">
-    			<h5>Username:</h5><input type="text" class="form-control" placeholder="Enter Username">
+    			<h5>NRP:</h5><form:input path="nrp" type="text" class="form-control" placeholder="Enter NRP"></form:input>
     		</div>
-        	<h5>Password:</h5><input type="password" class="form-control" placeholder="Enter Password">
+        	<h5>Password:</h5><form:input path="password" type="password" class="form-control" placeholder="Enter Password"></form:input>
         	<br>
         	<div class="text-center">
         		 <button id="submitvv" type="submit" class="btn btn-primary">Submit</button>
         	</div>
 
-    </form>
+    </form:form>
 
 </body>
 </html>

@@ -17,7 +17,7 @@ public class DosenDAO implements DosenInterfaceDAO {
 	 private SessionFactory sessionFactory;
 	 
 	 @Override
-	 public List<Dosen> getDosen() {
+	 public List<Dosen> getAllDosen() {
 	  
 	  // get current hibernate session
 	  Session currentSession = sessionFactory.getCurrentSession();

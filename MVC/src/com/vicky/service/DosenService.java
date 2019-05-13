@@ -17,9 +17,10 @@ public class DosenService implements DosenInterfaceService {
 	
 	@Override
 	@Transactional
-	public List<Dosen> getDosen() {
+	public List<Dosen> getAllDosen() {
 		
-		return dao.getDosen();
+		return dao.getAllDosen();
 	}
+	
 	
 }

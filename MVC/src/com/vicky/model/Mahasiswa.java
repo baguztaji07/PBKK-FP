@@ -14,29 +14,29 @@ public class Mahasiswa {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="nrp")
-	private int nrp;
+	private String nrp;
 	
-	@Column(name="nama")
+	@Column(name="nama_mhs")
 	private String nama;
 	
-	@Column(name="email")
+	@Column(name="email_mhs")
 	private String email;
 	
-	@Column(name="foto")
+	@Column(name="foto_mhs")
 	private String foto;
 	
-	@Column(name="password_mhs")
-	private int password_mhs;
+	@Column(name="pass_mhs")
+	private String password;
 
 	public Mahasiswa() {
 		
 	}
 	
-	public int getNrp() {
+	public String getNrp() {
 		return nrp;
 	}
 
-	public void setNrp(int nrp) {
+	public void setNrp(String nrp) {
 		this.nrp = nrp;
 	}
 
@@ -64,12 +64,12 @@ public class Mahasiswa {
 		this.foto = foto;
 	}
 
-	public int getPassword_mhs() {
-		return password_mhs;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPassword_mhs(int password_mhs) {
-		this.password_mhs = password_mhs;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	
