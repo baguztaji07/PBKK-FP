@@ -97,7 +97,18 @@
 				        <td><c:out value="${entry.nama}"/></td>
 				        <td><c:out value="${entry.status}"/></td>
 						<td id="action">
-							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="far fa-user"></i></button>
+							<button 
+								type="button" 
+								class="btn btn-primary openProfile"
+							 	id="dosenProfil"
+							 	data-nama="${entry.nama}"
+							 	data-no = "${entry.noTelp}"
+							 	data-nip = "${entry.nip}"
+							 	data-email = "${entry.email}"
+							 	data-nip = "${entry.nip}"
+							 	data-toggle ="modal"
+							 	data-target ="#modalProfil"
+							 	><i class="far fa-user"></i></button>
 							<button type="button" class="btn btn-info sendMessage" data-nip="${entry.nip}" data-nama="${entry.nama}" data-toggle="modal" data-target="#modalMessage"><i class="fas fa-envelope"></i></button>
 						</td>		        
 				  </tr>
@@ -131,11 +142,11 @@
 					  </div>						
 					  <div class="form-group">
 					    <label>Nama</label>
-					    <input type="text" class="form-control" id="namaInput" placeholder="Masukan Nama"/>
+					    <input type="text" class="form-control" id="namaInput" placeholder="Masukan Nama" disabled/>
 					  </div>
 					  <div class="form-group">
 					    <form:label path="nip">NIP</form:label>
-					    <form:input path="nip" type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP"/>
+					    <form:input path="nip" type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP" disabled="true"/>
 					  </div>
 					  <div class="form-group">
 					    <form:label path="pesan" for="pesanInput">Pesan</form:label>
@@ -152,6 +163,43 @@
 		      </div>
 		    </div>
 		  </div>
+			  <!-- The Modal -->
+		  <div class="modal fade" id="modalProfil">
+		    <div class="modal-dialog modal-xl">
+		      <div class="modal-content">
+		      
+		        <!-- Modal Header -->
+		        <div class="modal-header">
+		          <h4 class="modal-title">Profil</h4>
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        </div>
+		        
+		        <!-- Modal body -->
+		        <div class="modal-body">
+		        	<div style="text-align:center">
+		        	   <img style="width:30%;height:80%;" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            			alt="Foto Dosen">
+		        	</div>
+		        	<br>
+		        	<div style="padding:0px 80px;">
+		        		<div style="display:block;">
+		        			<p id="nama">Nama: </p>
+		        		</div>
+						<div style="display:block;">
+			        		<p id="NIP">NIP: </p>
+			        	</div>
+			        	<div style="display:block;">
+			        		<p id="email">Email: </p>
+			        	</div>	
+						<div style="display:block;">
+			        		<p id="noTelp">Nomor Telepon: </p>
+			        	</div>			        	    
+		        	</div>        		
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  		  
     </div>
 
   </main>

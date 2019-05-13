@@ -18,5 +18,18 @@ jQuery(function ($) {
         var NIP = $(this).data('nip');
         $(".modal-body #NIPInput").val( NIP );
    });
+    
+    $(document).on("click", ".openProfile", function () {
+        var nama = $(this).data('nama');
+        $(".modal-body #nama").text("Nama: "+nama );
+
+        var NIP = $(this).data('nip');
+        $(".modal-body #NIP").text("NIP: "+ NIP );
+        
+        var email = $(this).data('email');
+        $(".modal-body #email").text("Email: "+ email );
+        var noTelp = $(this).data('no');
+        $(".modal-body #noTelp").text("Nomor Telepon: "+ noTelp );
+   });
 });
 
