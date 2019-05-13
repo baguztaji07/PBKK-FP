@@ -13,7 +13,7 @@ public class Pesan {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="pesan")
+	@Column(name="isi")
 	private String pesan;
 	
 	@Column(name="keterangan")

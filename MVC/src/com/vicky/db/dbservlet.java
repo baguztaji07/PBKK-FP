@@ -1,4 +1,4 @@
-package com.kokkurang.db;
+package com.vicky.db;
 
 import java.io.IOException;
 import java.io.PrintWriter;

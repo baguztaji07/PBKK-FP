@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class Mahasiswa {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="nrp")
 	private String nrp;
 	
