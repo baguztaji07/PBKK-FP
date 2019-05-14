@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-<title>Home</title>
+<title>Inbox</title>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -14,7 +14,7 @@
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
             <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	<link href="<c:url value="/resources/css/homeMahasiswa.css"/>" rel="stylesheet">
+	<link href="<c:url value="/resources/css/inboxMahasiswa.css"/>" rel="stylesheet">
 	<link href="<c:url value="/resources/css/homeTheme.css"/>" rel="stylesheet">
 	<script src="<c:url value="/resources/js/homeMahasiswa.js" />"></script>
 </head>
@@ -69,13 +69,13 @@
             </a>
           </li>
           <li>
-            <a href="inboxMahasiswa">
+            <a href="#">
               <i class="fas fa-inbox"></i>
               <span>Inbox</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="homeMahasiswa">
               <i class="fas fa-th-list"></i>
               <span>List Dosen</span>
             </a>
@@ -95,90 +95,42 @@
   <!-- sidebar-wrapper  -->
   <main class="page-content">
     <div class="container-fluid">
-			<div class="table-responsive">
-			  <table class="table">
-			    <thead>
-			      <tr>
-			        <th scope="col">NIP</th>
-			        <th scope="col">Nama</th>
-			        <th scope="col">Status</th>
-			        <th scope="col">Action</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			 	  <c:forEach var="entry" items="${dosens}">
-			 	  <tr>
-			        	<td><c:out value="${entry.nip}"/></td>
-				        <td><c:out value="${entry.nama}"/></td>
-				        <td><c:out value="${entry.status}"/></td>
-						<td id="action">
-							<button 
-								type="button" 
-								class="btn btn-primary openProfileDosen"
-							 	id="dosenProfil"
-							 	data-nama="${entry.nama}"
-							 	data-no = "${entry.noTelp}"
-							 	data-nip = "${entry.nip}"
-							 	data-email = "${entry.email}"
-							 	data-toggle ="modal"
-							 	data-target ="#modalProfil"
-							 	><i class="far fa-user"></i></button>
-							<button type="button" class="btn btn-info sendMessage" data-nip="${entry.nip}" data-nama="${entry.nama}" data-toggle="modal" data-target="#modalMessage"><i class="fas fa-envelope"></i></button>
-						</td>		        
-				  </tr>
-			      </c:forEach>
-
-			    </tbody>
-			  </table>
-			</div>
-			
+		  <div class="message">
+	            <div class="sendTo">
+	                <h6>send to: Bagus Aji Santoso</h6>
+	            </div>
+	            <div class="status accept ">
+	                <i class="fas fa-check"></i>
+	            </div>
+	            <div class="content">
+	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
+	            </div> 
+    	  </div>
+    	  <div class="message">
+	            <div class="sendTo">
+	                <h6>send to: Bagus Aji Santoso</h6>
+	            </div>
+	            <div class="status reject">
+	                <i class="fas fa-times"></i>
+	            </div>
+	            <div class="content">
+	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
+	            </div> 
+    	  </div>
+    	      	  <div class="message">
+	            <div class="sendTo">
+	                <h6>send to: Bagus Aji Santoso</h6>
+	            </div>
+	            <div class="status waiting">
+	                <i class="fas fa-hourglass-half"></i>
+	            </div>
+	            <div class="content">
+	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
+	            </div> 
+    	  </div>
+    	  
 			  <!-- The Modal -->
-		  <div class="modal fade" id="modalMessage">
-		    <div class="modal-dialog modal-xl">
-		      <div class="modal-content">
-		      
-		        <!-- Modal Header -->
-		        <div class="modal-header">
-		          <h4 class="modal-title">Kirim Pesan</h4>
-		          <button type="button" class="close" data-dismiss="modal">&times;</button>
-		        </div>
-		        
-		        <!-- Modal body -->
-		        <div class="modal-body" >
-					<form:form action="messageSend" id="formMessage" method="POST" modelAttribute="Pesan">
-					  <div class="form-group" hidden>
-					    <label for="pesanInput">status</label>
-					    <form:input path="keterangan" class="form-control" id="nrpInput" placeholder="Masukan Keterangan" value="0"></form:input>
-					  </div>		
-					  <div class="form-group" hidden>
-					    <label for="pesanInput">NRP</label>
-					    <form:input path="nrp" class="form-control" id="nrpInput" placeholder="Masukan NRP" value="${user.nrp}"></form:input>
-					  </div>						
-					  <div class="form-group">
-					    <label>Nama</label>
-					    <input type="text" class="form-control" id="namaInput" placeholder="Masukan Nama" disabled/>
-					  </div>
-					  <div class="form-group">
-					    <form:label path="nip">NIP</form:label>
-					    <form:input path="nip" type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP" disabled="true"/>
-					  </div>
-					  <div class="form-group">
-					    <form:label path="pesan" for="pesanInput">Pesan</form:label>
-					    <form:textarea path="pesan" class="form-control" id="pesanInput" rows="3"></form:textarea>
-					  </div>
-					</form:form>
-		        </div>
-		        
-		        <!-- Modal footer -->
-		        <div class="modal-footer">
-		          <button type="submit" class="btn btn-primary" onclick="$( '#formMessage' ).submit();">Submit</button>
-		        </div>
-		        
-		      </div>
-		    </div>
-		  </div>
-			  <!-- The Modal -->
-		  <div class="modal fade" id="modalProfil">
+	   <div class="modal fade" id="modalProfil">
 		    <div class="modal-dialog modal-xl">
 		      <div class="modal-content">
 		      

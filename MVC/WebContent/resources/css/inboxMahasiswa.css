@@ -1,0 +1,43 @@
+.message{
+  display: grid;
+  grid-template-columns:60% 20%;
+  grid-template-areas: 
+  "sendTo status"
+  "content status";
+  margin-bottom: 5vh;
+  padding: 1vh 1vw;
+}
+.message .sendTo{
+      grid-area: sendTo;
+      text-align: left;
+      padding-top: 1vh;
+}
+.message .status{
+      grid-area: status;
+      text-align:center;
+      font-size: 50px;
+      padding-top: 2vh;
+}
+
+.accept{
+	color: green;
+}
+
+.reject{
+	color: red;
+}
+
+.waiting{
+	color: #909090;
+}
+
+.message .content{
+	grid-area: content;
+	padding-top:1vh;
+}
+
+
+@media screen and (max-width: 800px) {
+	.message{
+		grid-template-columns: 50% 60%;
+    }

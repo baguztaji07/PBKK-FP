@@ -84,6 +84,29 @@ public class MahasiswaController {
 		return controller;
 	}
 	
+	@GetMapping("/inboxMahasiswa")
+	public String InboxMahasiswa(Model model,HttpSession httpSession) {
+		String page = "inboxMahasiswa";
+		
+		
+		Mahasiswa user = (Mahasiswa) httpSession.getAttribute("user");
+		
+		if (user == null) {
+			return "redirect:/";
+		}
+		
+		List<Dosen> allDosen = dosenService.getAllDosen();
+		
+		model.addAttribute("user", user);
+		model.addAttribute("dosens", allDosen);
+		Pesan pesan = new Pesan();
+		model.addAttribute("Pesan", pesan);
+		
+		
+		
+		return page;
+	}
+	
 	@GetMapping("/signOut")
 	public String signOut(HttpSession httpSession) {
 		httpSession.setAttribute("user", null);
