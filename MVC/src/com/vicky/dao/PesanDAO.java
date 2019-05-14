@@ -27,15 +27,16 @@ public class PesanDAO implements PesanInterfaceDAO {
 	}
 
 	@Override
-	public List<Pesan> getAllPesan(Mahasiswa mahasiswa) {
+	public List<Object[]> getAllPesan(Mahasiswa mahasiswa) {
 		  // get current hibernate session
 		  Session currentSession = sessionFactory.getCurrentSession();
 		  
 		  
-		  String hql = "from Pesan where nrp=:nrp";
-		  Query<Pesan> query = currentSession.createQuery(hql);
+		  String hql = "Select p.*,d.nama_dsn from Pesan p INNER JOIN dosen d ON p.nip = d.nip where nrp=:nrp";
+		  Query query = currentSession.createSQLQuery(hql);
 		  query.setParameter("nrp", mahasiswa.getNrp());
-		  List<Pesan> allPesan = query.getResultList();
+		  List<Object[]> allPesan = query.getResultList();
+		  
 		  
 		  return allPesan;
 	}

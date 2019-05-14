@@ -95,51 +95,18 @@
   <!-- sidebar-wrapper  -->
   <main class="page-content">
     <div class="container-fluid">
-		  <div class="message">
-	            <div class="sendTo">
-	                <h6>send to: Bagus Aji Santoso</h6>
-	            </div>
-	            <div class="status accept ">
-	                <i class="fas fa-check"></i>
-	            </div>
-	            <div class="content">
-	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
-	            </div> 
-    	  </div>
-    	  <div class="message">
-	            <div class="sendTo">
-	                <h6>send to: Bagus Aji Santoso</h6>
-	            </div>
-	            <div class="status reject">
-	                <i class="fas fa-times"></i>
-	            </div>
-	            <div class="content">
-	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
-	            </div> 
-    	  </div>
-    	  <div class="message">
-	            <div class="sendTo">
-	                <h6>send to: Bagus Aji Santoso</h6>
-	            </div>
-	            <div class="status waiting">
-	                <i class="fas fa-hourglass-half"></i>
-	            </div>
-	            <div class="content">
-	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
-	            </div> 
-    	  </div>
     	   <c:forEach var="entry" items="${pesans}">
 				 <div class="message">
 		            <div class="sendTo">
-		                <h6>send to: <c:out value="${entry.nip}"/></h6>
+		            	 <h6>send to: ${entry[5]} [NIP: ${entry[0]}]</h6>
 		            </div>
 		            <div class="status waiting">
-		                <i class="fas ${entry.keterangan}"></i>
+		                <i class="fas  ${entry[2]}"></i>
 		            </div>
 		            <div class="content">
-		                   <p><c:out value="${entry.pesan}"/></p>
+		                   <p><c:out value="${entry[1]}"/></p>
 		            </div> 
-    	  		</div>		      	   		
+    	  		</div>    	   		
     	   </c:forEach>
     	  
 			  <!-- The Modal -->

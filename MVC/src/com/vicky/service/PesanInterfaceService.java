@@ -7,5 +7,5 @@ import com.vicky.model.Pesan;
 
 public interface PesanInterfaceService {
 	public void sendPesan(Pesan pesan);
-	public List<Pesan> getAllPesan(Mahasiswa mahasiswa);
+	public List<Object[]> getAllPesan(Mahasiswa mahasiswa);
 }

@@ -27,7 +27,7 @@ public class PesanService implements PesanInterfaceService {
 
 	@Override
 	@Transactional
-	public List<Pesan> getAllPesan(Mahasiswa mahasiswa) {
+	public List<Object[]> getAllPesan(Mahasiswa mahasiswa) {
 		return dao.getAllPesan(mahasiswa);
 	}
 

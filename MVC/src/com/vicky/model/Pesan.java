@@ -1,9 +1,17 @@
 package com.vicky.model;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +27,42 @@ public class Pesan {
 	@Column(name="keterangan")
 	private String keterangan;
 	
-	@Column(name="nrp")
-	private String nrp;
 	
-	@Column(name="nip")
-	private String nip;
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name ="nrp")
+	private Mahasiswa mahasiswa;
+
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name = "nip")
+	private Dosen dosen;
 
 	public Pesan() {
 		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Pesan [id=" + id + ", pesan=" + pesan + ", keterangan=" + keterangan + ", mahasiswa=" + mahasiswa
+				+ ", dosen=" + dosen + ", getMahasiswa()=" + getMahasiswa() + ", getDosen()=" + getDosen()
+				+ ", getId()=" + getId() + ", getPesan()=" + getPesan() + ", getKeterangan()=" + getKeterangan()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+
+	public Mahasiswa getMahasiswa() {
+		return mahasiswa;
+	}
+
+	public void setMahasiswa(Mahasiswa mahasiswa) {
+		this.mahasiswa = mahasiswa;
+	}
+
+	public Dosen getDosen() {
+		return dosen;
+	}
+
+	public void setDosen(Dosen dosen) {
+		this.dosen = dosen;
 	}
 
 	public int getId() {
@@ -51,22 +87,6 @@ public class Pesan {
 
 	public void setKeterangan(String keterangan) {
 		this.keterangan = keterangan;
-	}
-
-	public String getNrp() {
-		return nrp;
-	}
-
-	public void setNrp(String nrp) {
-		this.nrp = nrp;
-	}
-
-	public String getNip() {
-		return nip;
-	}
-
-	public void setNip(String nip) {
-		this.nip = nip;
 	}
 	
 	

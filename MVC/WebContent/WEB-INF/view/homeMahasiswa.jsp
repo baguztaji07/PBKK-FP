@@ -119,6 +119,7 @@
 							 	data-nama="${entry.nama}"
 							 	data-no = "${entry.noTelp}"
 							 	data-nip = "${entry.nip}"
+							 	data-dosen = "${entry}"
 							 	data-email = "${entry.email}"
 							 	data-toggle ="modal"
 							 	data-target ="#modalProfil"
@@ -152,16 +153,16 @@
 					  </div>		
 					  <div class="form-group" hidden>
 					    <label for="pesanInput">NRP</label>
-					    <form:input path="nrp" class="form-control" id="nrpInput" placeholder="Masukan NRP" value="${user.nrp}"></form:input>
+					    <form:input path="mahasiswa" class="form-control" id="nrpInput" placeholder="Masukan NRP" value="${user}"></form:input>
 					  </div>						
 					  <div class="form-group">
 					    <label>Nama</label>
 					    <input type="text" class="form-control" id="namaInput" placeholder="Masukan Nama" disabled/>
 					  </div>
 					  <div class="form-group">
-					    <form:label path="nip">NIP</form:label>
-					    <form:input path="nip" type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP" hidden="true"/>
-					    <input type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIPa" disabled/>					    
+					    <form:label path="dosen">NIP</form:label>
+					    <form:input path="dosen" type="text" class="form-control" id="dosenInput"  placeholder="Masukan NIP" hidden="true"/>
+					    <input type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP" disabled/>					    
 					  </div>
 					  <div class="form-group">
 					    <form:label path="pesan" for="pesanInput">Pesan</form:label>
