@@ -17,12 +17,7 @@ public class PesanService implements PesanInterfaceService {
 	@Autowired
 	private PesanInterfaceDAO dao;
 	
-	@Override
-	@Transactional
-	public List<Pesan> getAllPesan() {
-		
-		return dao.getAllPesan();
-	}
+
 	
 	@Override
 	@Transactional

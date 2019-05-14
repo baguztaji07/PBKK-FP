@@ -18,22 +18,6 @@ public class PesanDAO implements PesanInterfaceDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	 
-	 @Override
-	 public List<Pesan> getAllPesan() {
-	  
-	  // get current hibernate session
-	  Session currentSession = sessionFactory.getCurrentSession();
-	  
-	  // create a query
-	  Query<Pesan> theQuery = 
-	    currentSession.createQuery("from Pesan", Pesan.class);
-	  
-	  // execute query & get result list
-	  List<Pesan> pesans = theQuery.getResultList();
-	  
-	  // return the results
-	  return pesans;
-	 }
 	@Override
 	public void sendPesan(Pesan pesan) {
 		// get current hibernate session

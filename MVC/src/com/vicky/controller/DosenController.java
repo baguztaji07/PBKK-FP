@@ -62,7 +62,7 @@ public class DosenController {
 			return "redirect:/";
 		}
 		
-		List<Pesan> allPesan = pesanService.getAllPesan();
+		//List<Pesan> allPesan = pesanService.getAllPesan();
 		
 		model.addAttribute("user", user);
 		model.addAttribute("pesans", allPesan);
