@@ -1,5 +1,7 @@
 package com.vicky.dao;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -17,15 +19,21 @@ public class MahasiswaDAO implements MahasiswaInterfaceDAO {
 	public Mahasiswa getMahasiswa(Mahasiswa mahasiswa) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		
+		Mahasiswa result = null;
         String hql = "from Mahasiswa where nrp=:nrp and pass_mhs=:password";   
 		
         Query<Mahasiswa> query = currentSession.createQuery(hql);
 		query.setParameter("nrp", mahasiswa.getNrp());
 		query.setParameter("password", mahasiswa.getPassword());
 		
+		try {
+			result = query.getSingleResult();
+		} catch (NoResultException e) {
+			// TODO: handle exception
+		}
 		
-		Mahasiswa result = query.getSingleResult();
+
+		
 		return result;
 	}
 	 
