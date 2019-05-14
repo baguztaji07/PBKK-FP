@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,22 +28,24 @@ public class MahasiswaController {
 	private MahasiswaInterfaceService mahasiswaService;
 	
 	@GetMapping("/")
-	public String showLogin(Model model) {
+	public String showLogin(String error,Model model) {
 		
 		Mahasiswa mahasiswa = new Mahasiswa();
 		model.addAttribute("Mahasiswa", mahasiswa);
+		model.addAttribute("error", error);
 		
 		String page = "loginMahasiswa";
 		return page;
 	}
 	
 	@PostMapping("/checkMahasiswa")
-	public String checkMahasiswa(Mahasiswa mahasiswa,HttpSession httpSession) {
+	public String checkMahasiswa(Mahasiswa mahasiswa,HttpSession httpSession,Model model) {
 		String page = "redirect:homeMahasiswa";
 		
 		Mahasiswa result = mahasiswaService.getMahasiswa(mahasiswa);
 		
 		if (result == null) {
+			model.addAttribute("error", "akun tidak ditemukan");
 			return "redirect:/";
 		}
 		
@@ -60,6 +63,7 @@ public class MahasiswaController {
 		Mahasiswa user = (Mahasiswa) httpSession.getAttribute("user");
 		
 		if (user == null) {
+			model.addAttribute("error", "login terlebih dahulu untuk mengakses halaman");
 			return "redirect:/";
 		}
 		
@@ -92,6 +96,7 @@ public class MahasiswaController {
 		Mahasiswa user = (Mahasiswa) httpSession.getAttribute("user");
 		
 		if (user == null) {
+			model.addAttribute("error", "login terlebih dahulu untuk mengakses halaman");
 			return "redirect:/";
 		}
 		

@@ -21,6 +21,7 @@
     <form:form action="checkMahasiswa" method="POST" id="form-container" modelAttribute="Mahasiswa">
     		<div class="text-center">
     			 <h3>Login</h3>
+    			 <h5 style="color:red"><c:out value="${error}"/></h5>
     		</div>
     		<div style="margin-bottom: 10px;">
     			<h5>NRP:</h5><form:input path="nrp" type="text" class="form-control" placeholder="Enter NRP"></form:input>
