@@ -1,10 +1,13 @@
 package com.vicky.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.vicky.model.Mahasiswa;
 import com.vicky.model.Pesan;
 import com.vicky.dao.PesanInterfaceDAO;
 
@@ -19,6 +22,13 @@ public class PesanService implements PesanInterfaceService {
 	@Transactional
 	public void sendPesan(Pesan pesan) {
 		dao.sendPesan(pesan);
+	}
+
+
+	@Override
+	@Transactional
+	public List<Pesan> getAllPesan(Mahasiswa mahasiswa) {
+		return dao.getAllPesan(mahasiswa);
 	}
 
 }

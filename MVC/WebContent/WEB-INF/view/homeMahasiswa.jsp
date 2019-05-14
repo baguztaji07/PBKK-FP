@@ -148,7 +148,7 @@
 					<form:form action="messageSend" id="formMessage" method="POST" modelAttribute="Pesan">
 					  <div class="form-group" hidden>
 					    <label for="pesanInput">status</label>
-					    <form:input path="keterangan" class="form-control" id="nrpInput" placeholder="Masukan Keterangan" value="0"></form:input>
+					    <form:input path="keterangan" class="form-control" id="nrpInput" placeholder="Masukan Keterangan" value="fa-hourglass-half"></form:input>
 					  </div>		
 					  <div class="form-group" hidden>
 					    <label for="pesanInput">NRP</label>

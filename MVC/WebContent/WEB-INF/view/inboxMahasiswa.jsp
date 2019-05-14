@@ -117,7 +117,7 @@
 	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
 	            </div> 
     	  </div>
-    	      	  <div class="message">
+    	  <div class="message">
 	            <div class="sendTo">
 	                <h6>send to: Bagus Aji Santoso</h6>
 	            </div>
@@ -128,6 +128,19 @@
 	                   <p>MyWorld is a game that implement MineCraft world to website,so you can create and enjoy the world.We use Three.js to create this project</p>
 	            </div> 
     	  </div>
+    	   <c:forEach var="entry" items="${pesans}">
+				 <div class="message">
+		            <div class="sendTo">
+		                <h6>send to: <c:out value="${entry.nip}"/></h6>
+		            </div>
+		            <div class="status waiting">
+		                <i class="fas ${entry.keterangan}"></i>
+		            </div>
+		            <div class="content">
+		                   <p><c:out value="${entry.pesan}"/></p>
+		            </div> 
+    	  		</div>		      	   		
+    	   </c:forEach>
     	  
 			  <!-- The Modal -->
 	   <div class="modal fade" id="modalProfil">
