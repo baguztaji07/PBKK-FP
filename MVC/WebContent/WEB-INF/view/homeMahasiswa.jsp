@@ -156,11 +156,11 @@
 					  </div>						
 					  <div class="form-group">
 					    <label>Nama</label>
-					    <input type="text" class="form-control" id="namaInput" placeholder="Masukan Nama" disabled/>
+					    <input type="text" class="form-control" id="namaInput" placeholder="Masukan Nama"/>
 					  </div>
 					  <div class="form-group">
 					    <form:label path="nip">NIP</form:label>
-					    <form:input path="nip" type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP" disabled="true"/>
+					    <form:input path="nip" type="text" class="form-control" id="NIPInput"  placeholder="Masukan NIP"/>
 					  </div>
 					  <div class="form-group">
 					    <form:label path="pesan" for="pesanInput">Pesan</form:label>
