@@ -21,6 +21,13 @@ public class DosenService implements DosenInterfaceService {
 		
 		return dao.getAllDosen();
 	}
+
+	@Override
+	@Transactional
+	public Dosen getDosen(Dosen dosen) {
+		// TODO Auto-generated method stub
+		return dao.getDosen(dosen);
+	}
 	
 	
 }

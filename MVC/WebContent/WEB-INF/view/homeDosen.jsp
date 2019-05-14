@@ -36,10 +36,10 @@
             alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name"><strong>Riyanarto</strong>
-            Sarno
+          <span class="user-name">
+          <c:out value="${user.nama}"/>
           </span>
-          <span class="user-role">195908031986011001</span>
+          <span class="user-role"><c:out value="${user.nip}"/></span>
           <span class="user-status">
             <i class="fa fa-circle"></i>
             <span>Online</span>
@@ -90,11 +90,10 @@
 			    <tbody>
 			 	  <c:forEach var="entry" items="${pesans}">
 			 	  <tr>
-			        	<td><c:out value="${entry.nama_mhs}"/></td>
+			        	<td><c:out value="${entry.id}"/></td>
 				        <td><c:out value="${entry.pesan}"/></td>
 						<td id="action">
 							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="far fa-user"></i></button>
-							<button type="button" class="btn btn-info sendMessage" data-nip="${entry.nip}" data-nama="${entry.nama}" data-toggle="modal" data-target="#modalMessage"><i class="fas fa-envelope"></i></button>
 						</td>		        
 				  </tr>
 			      </c:forEach>

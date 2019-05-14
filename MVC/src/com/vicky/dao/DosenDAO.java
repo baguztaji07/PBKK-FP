@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.vicky.model.Dosen;
+import com.vicky.model.Mahasiswa;
 
 @Repository
 public class DosenDAO implements DosenInterfaceDAO {
@@ -32,5 +33,22 @@ public class DosenDAO implements DosenInterfaceDAO {
 	  // return the results
 	  return dosens;
 	 }
+
+	@Override
+	public Dosen getDosen(Dosen dosen) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+        String hql = "from Dosen where nip=:nip and pass_dsn=:password";   
+		
+        Query<Dosen> query = currentSession.createQuery(hql);
+		query.setParameter("nip", dosen.getNip());
+		query.setParameter("password", dosen.getPasswordDosen());
+		
+		
+		Dosen result = query.getSingleResult();
+		return result;
+	}
+	 
+	 
 
 }
