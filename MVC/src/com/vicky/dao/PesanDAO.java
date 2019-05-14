@@ -2,6 +2,8 @@ package com.vicky.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -31,13 +33,17 @@ public class PesanDAO implements PesanInterfaceDAO {
 	public List<Object[]> getAllPesan(Mahasiswa mahasiswa) {
 		  // get current hibernate session
 		  Session currentSession = sessionFactory.getCurrentSession();
-		  
+		  List<Object[]> allPesan = null;
 		  
 		  String hql = "Select p.*,d.nama_dsn from Pesan p INNER JOIN dosen d ON p.nip = d.nip where nrp=:nrp";
 		  Query query = currentSession.createSQLQuery(hql);
 		  query.setParameter("nrp", mahasiswa.getNrp());
-		  List<Object[]> allPesan = query.getResultList();
 		  
+		  try {
+			  allPesan = query.getResultList();
+		  } catch (NoResultException e) {
+			  
+		  }
 		  
 		  return allPesan;
 	}
