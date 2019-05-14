@@ -1,8 +1,12 @@
 package com.vicky.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +32,17 @@ public class Dosen {
 	@Column(name="status_ketersediaan_dsn")
 	private String status;
 	
+	@OneToMany(mappedBy = "dosen",cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	private List<Pesan> allPesan;
+	
+	public List<Pesan> getAllPesan() {
+		return allPesan;
+	}
+
+	public void setAllPesan(List<Pesan> allPesan) {
+		this.allPesan = allPesan;
+	}
+
 	public String getStatus() {
 		return status;
 	}

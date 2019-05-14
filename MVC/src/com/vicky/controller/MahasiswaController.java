@@ -95,13 +95,13 @@ public class MahasiswaController {
 			return "redirect:/";
 		}
 		
-		List<Dosen> allDosen = dosenService.getAllDosen();
+		List<Object[]> pesan = pesanService.getAllPesan(user);
+		if(pesan == null) {
+			return "redirect:homeMahasiswa";
+		}
 		
 		model.addAttribute("user", user);
-		model.addAttribute("dosens", allDosen);
-		Pesan pesan = new Pesan();
-		model.addAttribute("Pesan", pesan);
-		
+		model.addAttribute("pesans", pesan);
 		
 		
 		return page;
