@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Bulan Mei 2019 pada 07.16
+-- Waktu pembuatan: 15 Bulan Mei 2019 pada 16.32
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.4
 
@@ -44,8 +44,8 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nip`, `nama_dsn`, `foto_dsn`, `email_dsn`, `no_telp_dsn`, `no_wa_dsn`, `status_ketersediaan_dsn`, `pass_dsn`) VALUES
-('1', 'Muhammad Vicky R', 'foto', 'emailV', 'nomor teleponV', 'nomor WA V', 'ada', '25d55ad283aa400af464c76d713c07ad'),
-('2', 'Bagus Aji S S', 'foto', 'emailB', 'nomor teleponB', 'nomor WA B', 'tidak ada', '25d55ad283aa400af464c76d713c07ad');
+('1', 'Muhammad Vicky R', '1', 'emailV', 'nomor teleponV', 'nomor WA V', 'ada', '25d55ad283aa400af464c76d713c07ad'),
+('2', 'Gilbert Lijaya Therry', '2', 'emailB', 'nomor teleponB', 'nomor WA B', 'tidak ada', '25d55ad283aa400af464c76d713c07ad');
 
 -- --------------------------------------------------------
 
@@ -66,8 +66,8 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nrp`, `nama_mhs`, `foto_mhs`, `email_mhs`, `pass_mhs`) VALUES
-('05111640000068', 'Bagus Aji S S', 'foto', 'baguztaji@gmail.com', '25d55ad283aa400af464c76d713c07ad'),
-('05111640000116', 'Muhammad Vicky R', 'foto', 'vickyr.muhammad@gmail.com', '25d55ad283aa400af464c76d713c07ad');
+('05111640000068', 'Bagus Aji S S', '05111640000068\r\n', 'baguztaji@gmail.com', '1'),
+('05111640000116', 'Muhammad Vicky R', 'foto', 'vickyr.muhammad@gmail.com', '2');
 
 -- --------------------------------------------------------
 
@@ -78,7 +78,8 @@ INSERT INTO `mahasiswa` (`nrp`, `nama_mhs`, `foto_mhs`, `email_mhs`, `pass_mhs`)
 CREATE TABLE `pesan` (
   `id` int(11) NOT NULL,
   `isi` text NOT NULL,
-  `keterangan` tinyint(1) NOT NULL,
+  `keterangan` varchar(80) NOT NULL,
+  `status` varchar(20) NOT NULL,
   `nip` varchar(20) NOT NULL,
   `nrp` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -106,6 +107,16 @@ ALTER TABLE `pesan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_pesan_dosen` (`nip`),
   ADD KEY `FK_pesan_mahasiswa` (`nrp`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `pesan`
+--
+ALTER TABLE `pesan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
