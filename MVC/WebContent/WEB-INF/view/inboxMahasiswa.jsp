@@ -34,7 +34,7 @@
       </div>
       <div class="sidebar-header">
         <div class="user-pic">
-          <img class="img-responsive img-rounded" src="${pageContext.request.contextPath}/resources/images/${user.nrp }.jpg"
+          <img class="img-responsive img-rounded" style="width:100%;height:65px;" src="${pageContext.request.contextPath}/resources/images/${user.nrp }.jpg"
             alt="User picture">
         </div>
         <div class="user-info">
@@ -132,7 +132,7 @@
 		        <!-- Modal body -->
 		        <div class="modal-body"style="height:80%;">
 		        	<div style="text-align:center">
-		        	   <img id="foto" style="width:30%;height:50%;" src="${pageContext.request.contextPath}/resources/images/1.jpg"
+		        	   <img id="foto" style="width:40%;height:170px;" src="${pageContext.request.contextPath}/resources/images/1.jpg"
             			alt="Foto Dosen">
 		        	</div>
 		        	<br>
