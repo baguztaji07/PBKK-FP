@@ -36,8 +36,26 @@
 	padding-top:1vh;
 }
 
+#empty-inbox{
+	width:30vw;
+	height: 30vh;
+        margin:6% auto;
+		padding:15% 2px;
+		align-content:center;
+		text-align:center;
+        /*this to solve "the content will not be cut when the window is smaller than the content": */
+        max-width:100%;
+        max-height:100%;
+        overflow:auto;
+        color:grey;
+}
+
 
 @media screen and (max-width: 800px) {
 	.message{
 		grid-template-columns: 50% 60%;
+    }
+    #empty-box{
+    	width:100vw;
+    	height:100vh;
     }

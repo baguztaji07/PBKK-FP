@@ -11,7 +11,7 @@ jQuery(function ($) {
         $('#bookId').val($(this).data('id'));
         $('#addBookDialog').modal('show');
     });
-    
+    console.log($(".user-pic img").attr("src"));
     $(document).on("click", ".sendMessage", function () {
         var nama = $(this).data('nama');
         $(".modal-body #namaInput").val( nama );
@@ -34,6 +34,10 @@ jQuery(function ($) {
         $(".modal-body #email").text("Email: "+ email );
         var noTelp = $(this).data('no');
         $(".modal-body #noTelp").text("Nomor Telepon: "+ noTelp );
+        
+        var foto = $(this).data('img');
+        $(".modal-body #foto").attr("src","/Tugas-MVC/resources/images/"+foto+".jpg");
+        $(".modal-body #foto").attr("alt","Foto Dosen");
    });
     $(document).on("click", ".openUserProfile", function () {
         $(".modal-header #tittle").text("Profil Mahasiswa");
@@ -46,6 +50,10 @@ jQuery(function ($) {
         
         var email = $(this).data('email');
         $(".modal-body #email").text("Email: "+ email );
+        
+        var foto = $(this).data('img');
+        $(".modal-body #foto").attr("src","/Tugas-MVC/resources/images/"+foto+".jpg");
+        $(".modal-body #foto").attr("alt","Foto Mahasiswa");
    });
 });
 

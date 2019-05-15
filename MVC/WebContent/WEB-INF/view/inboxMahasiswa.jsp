@@ -34,7 +34,7 @@
       </div>
       <div class="sidebar-header">
         <div class="user-pic">
-          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+          <img class="img-responsive img-rounded" src="${pageContext.request.contextPath}/resources/images/${user.nrp }.jpg"
             alt="User picture">
         </div>
         <div class="user-info">
@@ -62,6 +62,7 @@
                data-nama="${user.nama}"
 			   data-nrp = "${user.nrp}"
 			   data-email = "${user.email}"
+			   data-img ="${user.foto}"
 			   data-toggle ="modal"
 			   data-target ="#modalProfil">
              <i class="far fa-user"></i>
@@ -95,13 +96,21 @@
   <!-- sidebar-wrapper  -->
   <main class="page-content">
     <div class="container-fluid">
+    		<c:if test="${message!=null}">
+    		
+    			<div id="empty-inbox">
+    				 ${message}
+    				 <h4>Coba Hubungi Dosenmu!</h4>
+    			</div>
+    		</c:if> 
     	   <c:forEach var="entry" items="${pesans}">
 				 <div class="message">
 		            <div class="sendTo">
-		            	 <h6>send to: ${entry[5]} [NIP: ${entry[0]}]</h6>
+		            	 <h6>send to: ${entry[5]} [NIP: ${entry[4]}]</h6>
 		            </div>
-		            <div class="status waiting">
+		            <div class="status ${entry[3] }">
 		                <i class="fas  ${entry[2]}"></i>
+		            
 		            </div>
 		            <div class="content">
 		                   <p><c:out value="${entry[1]}"/></p>
@@ -123,7 +132,7 @@
 		        <!-- Modal body -->
 		        <div class="modal-body"style="height:80%;">
 		        	<div style="text-align:center">
-		        	   <img style="width:30%;height:50%;" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+		        	   <img id="foto" style="width:30%;height:50%;" src="${pageContext.request.contextPath}/resources/images/1.jpg"
             			alt="Foto Dosen">
 		        	</div>
 		        	<br>

@@ -27,6 +27,9 @@ public class Pesan {
 	@Column(name="keterangan")
 	private String keterangan;
 	
+	@Column(name="status")
+	private String status;
+	
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name ="nrp")

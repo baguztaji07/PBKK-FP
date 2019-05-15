@@ -101,8 +101,8 @@ public class MahasiswaController {
 		}
 		
 		List<Object[]> pesan = pesanService.getAllPesan(user);
-		if(pesan == null) {
-			return "redirect:homeMahasiswa";
+		if(pesan.isEmpty()) {
+			model.addAttribute("message", "Kotak Pesan Kosong");
 		}
 		
 		model.addAttribute("user", user);

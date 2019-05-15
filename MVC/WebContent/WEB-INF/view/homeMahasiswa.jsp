@@ -34,8 +34,7 @@
       </div>
       <div class="sidebar-header">
         <div class="user-pic">
-          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-            alt="User picture">
+          <img class="img-responsive img-rounded"   src="${pageContext.request.contextPath}/resources/images/05111640000068.jpg" alt="User picture">
         </div>
         <div class="user-info">
           <span class="user-name">
@@ -62,6 +61,7 @@
                data-nama="${user.nama}"
 			   data-nrp = "${user.nrp}"
 			   data-email = "${user.email}"
+			   data-img = "${user.foto }"
 			   data-toggle ="modal"
 			   data-target ="#modalProfil">
              <i class="far fa-user"></i>
@@ -96,6 +96,7 @@
   <main class="page-content">
     <div class="container-fluid">
 			<div class="table-responsive">
+			
 			  <table class="table">
 			    <thead>
 			      <tr>
@@ -121,6 +122,7 @@
 							 	data-nip = "${entry.nip}"
 							 	data-dosen = "${entry}"
 							 	data-email = "${entry.email}"
+							 	data-img = "${entry.foto}"
 							 	data-toggle ="modal"
 							 	data-target ="#modalProfil"
 							 	><i class="far fa-user"></i></button>
@@ -193,7 +195,7 @@
 		        <!-- Modal body -->
 		        <div class="modal-body"style="height:80%;">
 		        	<div style="text-align:center">
-		        	   <img style="width:30%;height:50%;" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+		        	   <img id="foto" style="width:30%;height:50%;" src="${pageContext.request.contextPath}/resources/images/1.jpg"
             			alt="Foto Dosen">
 		        	</div>
 		        	<br>
