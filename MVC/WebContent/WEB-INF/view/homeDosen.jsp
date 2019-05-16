@@ -87,9 +87,11 @@
 			 	  <tr>
 			 	  		<td><c:out value="${entry[5]}"/></td>
 			        	<td><c:out value="${entry[6]}"/></td>
-				        <td><c:out value="${entry[1]}"/></td>
-						<td id="action">
-							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="far fa-user"></i></button>
+						<td style="width:50%"><c:out value="${entry[1]}"/></td>
+
+				  		<td id="Action">
+							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="fas fa-check"></i></i></button>
+	            			<button type="button" class="btn btn-danger" id="dosenProfil"><i class="fas fa-times"></i></i></button>
 						</td>		        
 				  </tr>
 			      </c:forEach>
