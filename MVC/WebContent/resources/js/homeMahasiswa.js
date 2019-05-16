@@ -17,8 +17,6 @@ jQuery(function ($) {
         $(".modal-body #namaInput").val( nama );
         var NIP = $(this).data('nip');
         $(".modal-body #NIPInput").val( NIP );
-        var dosen = $(this).data('dosen');
-        $(".modal-body #dosenInput").val( NIP );
    });
     
     $(document).on("click", ".openProfileDosen", function () {

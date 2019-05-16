@@ -30,43 +30,54 @@ public class Pesan {
 	@Column(name="status")
 	private String status;
 	
+	@Column(name="nrp")
+	private String nrp;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinColumn(name ="nrp")
-	private Mahasiswa mahasiswa;
+	@Column(name="nip")
+	private String nip;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinColumn(name = "nip")
-	private Dosen dosen;
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
+	public String getNrp() {
+		return nrp;
+	}
+
+
+
+	public void setNrp(String nrp) {
+		this.nrp = nrp;
+	}
+
+
+
+	public String getNip() {
+		return nip;
+	}
+
+
+
+	public void setNip(String nip) {
+		this.nip = nip;
+	}
+
+
 
 	public Pesan() {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		return "Pesan [id=" + id + ", pesan=" + pesan + ", keterangan=" + keterangan + ", mahasiswa=" + mahasiswa
-				+ ", dosen=" + dosen + ", getMahasiswa()=" + getMahasiswa() + ", getDosen()=" + getDosen()
-				+ ", getId()=" + getId() + ", getPesan()=" + getPesan() + ", getKeterangan()=" + getKeterangan()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
-	}
 
-	public Mahasiswa getMahasiswa() {
-		return mahasiswa;
-	}
-
-	public void setMahasiswa(Mahasiswa mahasiswa) {
-		this.mahasiswa = mahasiswa;
-	}
-
-	public Dosen getDosen() {
-		return dosen;
-	}
-
-	public void setDosen(Dosen dosen) {
-		this.dosen = dosen;
-	}
 
 	public int getId() {
 		return id;

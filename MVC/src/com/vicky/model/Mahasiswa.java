@@ -34,16 +34,8 @@ public class Mahasiswa {
 	
 	@Column(name="pass_mhs")
 	private String password;
-	
-	@OneToMany(mappedBy = "mahasiswa",cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-	private List<Pesan> allPesan;
-	public List<Pesan> getAllPesan() {
-		return allPesan;
-	}
 
-	public void setAllPesan(List<Pesan> allPesan) {
-		this.allPesan = allPesan;
-	}
+
 	
 
 	public Mahasiswa() {

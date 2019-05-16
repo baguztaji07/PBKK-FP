@@ -106,7 +106,7 @@
     	   <c:forEach var="entry" items="${pesans}">
 				 <div class="message">
 		            <div class="sendTo">
-		            	 <h6>send to: ${entry[5]} [NIP: ${entry[4]}]</h6>
+		            	 <h6>send to: ${entry[6]} [NIP: ${entry[4]}]</h6>
 		            </div>
 		            <div class="status ${entry[3] }">
 		                <i class="fas  ${entry[2]}"></i>
