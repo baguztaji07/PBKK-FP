@@ -92,7 +92,7 @@
 				  		<td id="Action">
 							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="fas fa-check"></i></i></button>
 	            			<button type="button" class="btn btn-danger" id="dosenProfil"><i class="fas fa-times"></i></i></button>
-						</td>		        
+						</td>		     
 				  </tr>
 			      </c:forEach>
 
