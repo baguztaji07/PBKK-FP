@@ -9,7 +9,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.vicky.model.Dosen;
 import com.vicky.model.Mahasiswa;
 import com.vicky.model.Pesan;
 import com.vicky.model.Pesan;
@@ -48,5 +50,25 @@ public class PesanDAO implements PesanInterfaceDAO {
 		  return allPesan;
 	}
 
+	@Override
+	@Transactional
+	public List<Object[]> getAllPesanDosen(Dosen dosen) {
+		// TODO Auto-generated method stub
+		// get current hibernate session
+		  Session currentSession = sessionFactory.getCurrentSession();
+		  List<Object[]> allPesan = null;
+		  
+		  String hql = "Select p.*,m.nama_mhs from Pesan p INNER JOIN mahasiswa m ON p.nrp = m.nrp where nip=:nip";
+		  Query query = currentSession.createSQLQuery(hql);
+		  query.setParameter("nip", dosen.getNip());
+		  
+		  try {
+			  allPesan = query.getResultList();
+		  } catch (NoResultException e) {
+			  
+		  }
+		  
+		  return allPesan;
+	}
 
 }
