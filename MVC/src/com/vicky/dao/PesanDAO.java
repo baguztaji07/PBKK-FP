@@ -70,5 +70,24 @@ public class PesanDAO implements PesanInterfaceDAO {
 		  
 		  return allPesan;
 	}
+	
+	@Override
+	@Transactional
+	public void gantiStatus(String pesan) {
+		// TODO Auto-generated method stub
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		String[] data = pesan.split("@", 3); 
+        String hql = "UPDATE Pesan SET keterangan=:keterangan, status =:status WHERE id =:id";  
+       
+        Query query = currentSession.createQuery(hql);
+        System.out.println(data[0]);
+        System.out.println(data[2]);
+        System.out.println(data[1]);
+		query.setParameter("id",Integer.parseInt(data[0]));
+		query.setParameter("keterangan", data[2]);
+		query.setParameter("status", data[1]);
+		query.executeUpdate();
+	}
 
 }

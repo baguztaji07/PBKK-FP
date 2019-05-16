@@ -28,6 +28,14 @@ public class DosenService implements DosenInterfaceService {
 		// TODO Auto-generated method stub
 		return dao.getDosen(dosen);
 	}
+
+	@Override
+	@Transactional
+	public void gantiKetersediaan(String ketersediaan) {
+		// TODO Auto-generated method stub
+		dao.gantiKetersediaan(ketersediaan);
+		
+	}
 	
 	
 }

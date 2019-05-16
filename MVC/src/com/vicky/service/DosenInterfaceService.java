@@ -8,4 +8,5 @@ import com.vicky.model.Mahasiswa;
 public interface DosenInterfaceService {
 	public List<Dosen> getAllDosen();
 	public Dosen getDosen(Dosen dosen);
+	void gantiKetersediaan(String ketersediaan);
 }

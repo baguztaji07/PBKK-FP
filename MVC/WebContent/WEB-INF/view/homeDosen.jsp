@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,13 @@
         crossorigin="anonymous">
             <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 	<link href="<c:url value="/resources/css/homeMahasiswa.css"/>" rel="stylesheet">
+	<link href="<c:url value="/resources/css/ketersediaan.css"/>" rel="stylesheet">
+	<link href="<c:url value="/resources/css/homeTheme.css"/>" rel="stylesheet">
 	<script src="<c:url value="/resources/js/homeMahasiswa.js" />"></script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	
 </head>
 <body>
 <div class="page-wrapper chiller-theme toggled">
@@ -45,7 +52,17 @@
             <span>Online</span>
           </span>
         </div>
-      </div>
+      </div>  
+      	<form action="changeKetersediaan" id = "ketersediaan" method="GET" style="display:inline-block">
+			<c:choose>
+		    <c:when test="${user.status!='ada'}">
+		        <button style="margin-left:2.5rem" name="ketersediaan" type="submit" value="${user.nip}@ada" class="btn btn-primary" onclick="$( '#ketersediaan' ).submit();">Ada</button>bu
+		    </c:when>    
+		    <c:otherwise>
+		        <button style="margin-left:2.5rem" name="ketersediaan" type="submit" value="${user.nip}@tidak ada" class="btn btn-primary" onclick="$( '#ketersediaan' ).submit();">Tidak Ada</button>
+		    </c:otherwise>
+			</c:choose>
+		</form>
       <!-- sidebar-header  -->
       <div class="sidebar-menu">
         <ul>
@@ -89,10 +106,17 @@
 			        	<td><c:out value="${entry[6]}"/></td>
 						<td style="width:50%"><c:out value="${entry[1]}"/></td>
 
-				  		<td id="Action">
-							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="fas fa-check"></i></i></button>
-	            			<button type="button" class="btn btn-danger" id="dosenProfil"><i class="fas fa-times"></i></i></button>
-						</td>		     
+				  		<td>
+						<form action="changeStats" method="GET" style="display:inline-block">
+							<input name="shehe" type="text" class="btn btn-success" value="${entry[0]}@accept@fa-check" hidden="true"/>
+							<button type="submit" class="btn btn-success" ><i class="fas fa-check"></i></button>
+						</form>
+						<form action="changeStats" method="GET" style="display:inline-block">
+							<input name="shehe" type="text" class="btn btn-danger" value="${entry[0]}@reject@fa-times" hidden="true"/>
+							<button type="submit" class="btn btn-danger" ><i class="fas fa-times"></i></button>
+						</form>
+						</td>
+						
 				  </tr>
 			      </c:forEach>
 

@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.vicky.model.Dosen;
 import com.vicky.model.Mahasiswa;
@@ -49,6 +50,19 @@ public class DosenDAO implements DosenInterfaceDAO {
 		return result;
 	}
 	 
-	 
+	@Override
+	@Transactional
+	public void gantiKetersediaan(String ketersediaan) {
+		// TODO Auto-generated method stub
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		String[] data = ketersediaan.split("@", 2); 
+        String hql = "UPDATE Dosen SET status=:status WHERE nip =:nip";  
+       
+        Query query = currentSession.createQuery(hql);
+		query.setParameter("nip",data[0]);
+		query.setParameter("status", data[1]);
+		query.executeUpdate();
+	} 
 
 }

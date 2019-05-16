@@ -39,4 +39,12 @@ public class PesanService implements PesanInterfaceService {
 		return dao.getAllPesanDosen(dosen);
 	}
 
+
+	@Override
+	@Transactional
+	public void gantiStatus(String pesan) {
+		// TODO Auto-generated method stub
+		dao.gantiStatus(pesan);
+	}
+
 }

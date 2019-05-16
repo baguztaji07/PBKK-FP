@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.vicky.model.Dosen;
 import com.vicky.model.Mahasiswa;
@@ -67,6 +69,7 @@ public class DosenController {
 		List<Object[]> pesan = pesanService.getAllPesanDosen(user);
 		
 		model.addAttribute("user", user);
+		model.addAttribute("string", "");
 		model.addAttribute("pesans", pesan);
 //		Pesan pesan = new Pesan();
 //		model.addAttribute("Pesan", pesan);
@@ -74,33 +77,33 @@ public class DosenController {
 		return page;
 	}
 	
+	@GetMapping("/changeStats")
+	public String changeStats(@RequestParam("shehe") String hay) {
+		System.out.println(hay);
+		pesanService.gantiStatus(hay);
+		
+		String controller = "redirect:homeDosen";
+		return controller;
+	}
 	
+	@GetMapping("/changeKetersediaan")
+	public String changeKetersediaan(@RequestParam("ketersediaan") String ketersediaan,HttpSession httpSession) {
+		dosenService.gantiKetersediaan(ketersediaan);
+		System.out.println(ketersediaan);
+		httpSession.setAttribute("tmp",(Dosen) httpSession.getAttribute("user"));
+		httpSession.setAttribute("user",null);
+		String controller = "redirect:sliwer";
+
+		return controller;
+	}
 	
-	
-//	@RequestMapping("/profil")
-//	public String ProfilDosen() {
-//		String profil = "profilDosen";
-//		
-//		return profil;
-//	}
-//	
-//	
-//	@RequestMapping("/login")
-//	public String showLogin() {
-//		String page = "loginDosen";
-//		return page;
-//	}
-//	
-//	@RequestMapping("/dosen")
-//	public String showHome() {
-//		String page = "dosen";
-//		return page;
-//	}
-//	
-//	@RequestMapping("/profilDosen")
-//	public String showProfil() {
-//		String page = "profilFosen";
-//		return page;
-//	}
-	
+	@GetMapping("/sliwer")
+	public String sliwer(Model model,HttpSession httpSession) {
+		Dosen user = (Dosen) httpSession.getAttribute("user");
+		System.out.println(user.getStatus());
+		Dosen result = dosenService.getDosen(user);
+		httpSession.setAttribute("user", user);
+		String controller = "redirect:homeDosen";
+		return controller;
+	}
 }
