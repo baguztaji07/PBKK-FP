@@ -59,13 +59,7 @@
             </a>
           </li>
           <li>
-            <a href="/Tugas-MVC/">
-              <i class="fas fa-inbox"></i>
-              <span>Inbox</span>
-            </a>
-          </li>
-          <li>
-            <a href="/Tugas-MVC/">
+            <a href="/Tugas-MVC/login">
               <i class="fa fa-power-off"></i>
               <span>Sign Out</span>
             </a>
@@ -82,6 +76,7 @@
 			  <table class="table">
 			    <thead>
 			      <tr>
+			      	<th scope="col">NRP</th>
 			        <th scope="col">Nama</th>
 			        <th scope="col">Pesan</th>
 			        <th scope="col">Action</th>
@@ -90,8 +85,9 @@
 			    <tbody>
 			 	  <c:forEach var="entry" items="${pesans}">
 			 	  <tr>
-			        	<td><c:out value="${entry.id}"/></td>
-				        <td><c:out value="${entry.pesan}"/></td>
+			 	  		<td><c:out value="${entry[5]}"/></td>
+			        	<td><c:out value="${entry[6]}"/></td>
+				        <td><c:out value="${entry[1]}"/></td>
 						<td id="action">
 							<button type="button" class="btn btn-primary" id="dosenProfil"><i class="far fa-user"></i></button>
 						</td>		        

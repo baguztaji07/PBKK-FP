@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.vicky.model.Dosen;
+import com.vicky.model.Mahasiswa;
 import com.vicky.model.Dosen;
 import com.vicky.model.Pesan;
 import com.vicky.service.DosenInterfaceService;
@@ -59,18 +60,17 @@ public class DosenController {
 		Dosen user = (Dosen) httpSession.getAttribute("user");
 		
 		if (user == null) {
-			return "redirect:/";
+			model.addAttribute("error", "login terlebih dahulu untuk mengakses halaman");
+			return "redirect:/login";
 		}
 		
-		//List<Pesan> allPesan = pesanService.getAllPesan();
+		List<Object[]> pesan = pesanService.getAllPesanDosen(user);
 		
 		model.addAttribute("user", user);
-		model.addAttribute("pesans", allPesan);
-		Pesan pesan = new Pesan();
-		model.addAttribute("Pesan", pesan);
-		
-		
-		
+		model.addAttribute("pesans", pesan);
+//		Pesan pesan = new Pesan();
+//		model.addAttribute("Pesan", pesan);
+
 		return page;
 	}
 	
