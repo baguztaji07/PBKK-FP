@@ -36,7 +36,7 @@
       </div>
       <div class="sidebar-header">
         <div class="user-pic">
-          <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+          <img class="img-responsive img-rounded" style="width:100%;height:65px;" src="${pageContext.request.contextPath}/resources/images/${user.nip}.jpg"
             alt="User picture">
         </div>
         <div class="user-info">
@@ -82,7 +82,7 @@
             </a>
           </li>
           <li>
-            <a href="/Tugas-MVC/login">
+            <a href="/Tugas-MVC/">
               <i class="fa fa-power-off"></i>
               <span>Sign Out</span>
             </a>
