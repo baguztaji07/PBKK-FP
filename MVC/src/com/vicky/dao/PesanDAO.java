@@ -58,7 +58,7 @@ public class PesanDAO implements PesanInterfaceDAO {
 		  Session currentSession = sessionFactory.getCurrentSession();
 		  List<Object[]> allPesan = null;
 		  
-		  String hql = "Select p.*,m.nama_mhs from Pesan p INNER JOIN mahasiswa m ON p.nrp = m.nrp where nip=:nip";
+		  String hql = "Select p.*,m.nama_mhs from Pesan p INNER JOIN mahasiswa m ON p.nrp = m.nrp where nip=:nip AND status='waiting'";
 		  Query query = currentSession.createSQLQuery(hql);
 		  query.setParameter("nip", dosen.getNip());
 		  
