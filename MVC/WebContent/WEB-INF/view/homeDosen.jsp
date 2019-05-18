@@ -18,9 +18,6 @@
 	<link href="<c:url value="/resources/css/ketersediaan.css"/>" rel="stylesheet">
 	<link href="<c:url value="/resources/css/homeTheme.css"/>" rel="stylesheet">
 	<script src="<c:url value="/resources/js/homeMahasiswa.js" />"></script>
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	
 </head>
 <body>
@@ -56,10 +53,10 @@
       	<form action="changeKetersediaan" id = "ketersediaan" method="GET" style="display:inline-block">
 			<c:choose>
 		    <c:when test="${user.status!='ada'}">
-		        <button style="margin-left:2.5rem" name="ketersediaan" type="submit" value="${user.nip}@ada" class="btn btn-primary" onclick="$( '#ketersediaan' ).submit();">Ada</button>bu
+		        <button style="margin-left:1.3rem" name="ketersediaan" type="submit" value="${user.nip}@ada" class="btn btn-primary" onclick="$( '#ketersediaan' ).submit();">Ada</button>bu
 		    </c:when>    
 		    <c:otherwise>
-		        <button style="margin-left:2.5rem" name="ketersediaan" type="submit" value="${user.nip}@tidak ada" class="btn btn-primary" onclick="$( '#ketersediaan' ).submit();">Tidak Ada</button>
+		        <button style="margin-left:1.3rem" name="ketersediaan" type="submit" value="${user.nip}@tidak ada" class="btn btn-primary" onclick="$( '#ketersediaan' ).submit();">Tidak Ada</button>
 		    </c:otherwise>
 			</c:choose>
 		</form>
@@ -70,7 +67,16 @@
             <span>Menu</span>
           </li>
           <li>
-            <a href="#">
+          <a href="#"
+          class ="openProfileDosen" 
+          data-toggle ="modal"
+			 	data-target ="#modalProfil"
+               data-nama="${user.nama}"
+			   data-no = "${user.noTelp}"
+			   data-nip = "${user.nip}"
+			   data-dosen = "${user}"
+			   data-email = "${user.email}"
+			   data-img = "${user.foto}">
              <i class="far fa-user"></i>
               <span>Profile</span>
             </a>
@@ -123,6 +129,48 @@
 			    </tbody>
 			  </table>
 			</div>
+			
+			<div class="modal fade" id="modalProfil">
+			    <div class="modal-dialog modal-xl">
+			      <div class="modal-content">
+			      
+			        <!-- Modal Header -->
+			        <div class="modal-header">
+			          <h4 class="modal-title" id="tittle">Loading..</h4>
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        </div>
+			        
+			        <!-- Modal body -->
+			        <div class="modal-body"style="height:80%;">
+			        	<div style="text-align:center">
+			        	   <img id="foto" style="width:40%;height:170px;" src="${pageContext.request.contextPath}/resources/images/1.jpg"
+	            			alt="Foto Dosen">
+			        	</div>
+			        	<br>
+			        	<div style="padding:10px 10px;">
+			        		<div style="display:block;">
+			        			<p id="nama">Loading..</p>
+			        		</div>
+							<div style="display:block;">
+				        		<p id="NIPorNRP">Loading..</p>
+				        	</div>
+				        	<div style="display:block;">
+				        		<p id="email">Loading..</p>
+				        	</div>	
+							<div style="display:block;">
+				        		<p id="noTelp"></p>
+				        	</div>			        	    
+			        	</div>        		
+			        </div>
+			      </div>
+			    </div>
+			  </div>
 		  </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    </body>
 </html>

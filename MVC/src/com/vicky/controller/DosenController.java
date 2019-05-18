@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.vicky.model.Dosen;
 import com.vicky.model.Mahasiswa;
-import com.vicky.model.Dosen;
 import com.vicky.model.Pesan;
-import com.vicky.service.DosenInterfaceService;
 import com.vicky.service.DosenInterfaceService;
 import com.vicky.service.PesanInterfaceService;
 
