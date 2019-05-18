@@ -2,6 +2,8 @@ package com.vicky.dao;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -10,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.vicky.model.Dosen;
-import com.vicky.model.Mahasiswa;
 
 @Repository
 public class DosenDAO implements DosenInterfaceDAO {
@@ -38,15 +39,18 @@ public class DosenDAO implements DosenInterfaceDAO {
 	@Override
 	public Dosen getDosen(Dosen dosen) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		
+		Dosen result = null;
         String hql = "from Dosen where nip=:nip and pass_dsn=:password";   
 		
         Query<Dosen> query = currentSession.createQuery(hql);
 		query.setParameter("nip", dosen.getNip());
 		query.setParameter("password", dosen.getPasswordDosen());
 		
-		
-		Dosen result = query.getSingleResult();
+		try {
+			result = query.getSingleResult();
+		} catch (NoResultException e) {
+			// TODO: handle exception
+		}
 		return result;
 	}
 	 

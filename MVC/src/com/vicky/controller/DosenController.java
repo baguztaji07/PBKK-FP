@@ -29,23 +29,25 @@ public class DosenController {
 	private PesanInterfaceService pesanService;
 	
 	@GetMapping("/login")
-	public String showLogin(Model model) {
+	public String showLogin(String error, Model model) {
 		
 		Dosen dosen = new Dosen();
 		model.addAttribute("Dosen", dosen);
+		model.addAttribute("error", error);
 		
 		String page = "loginDosen";
 		return page;
 	}
 	
 	@PostMapping("/checkDosen")
-	public String checkDosen(Dosen dosen,HttpSession httpSession) {
+	public String checkDosen(Dosen dosen,HttpSession httpSession,Model model) {
 		String page = "redirect:homeDosen";
 		
 		Dosen result = dosenService.getDosen(dosen);
 		
 		if (result == null) {
-			return "redirect:/";
+			model.addAttribute("error", "akun tidak ditemukan");
+			return "redirect:/login";
 		}
 		
 		httpSession.setAttribute("user", result);
@@ -91,8 +93,7 @@ public class DosenController {
 		dosenService.gantiKetersediaan(ketersediaan);
 		System.out.println(ketersediaan);
 		httpSession.setAttribute("tmp",(Dosen) httpSession.getAttribute("user"));
-		httpSession.setAttribute("user",null);
-		String controller = "redirect:sliwer";
+		String controller = "redirect:homeDosen";
 
 		return controller;
 	}

@@ -27,7 +27,7 @@ public class MahasiswaController {
 	@Autowired
 	private MahasiswaInterfaceService mahasiswaService;
 	
-	@GetMapping("/")
+	@GetMapping("/loginMhs")
 	public String showLogin(String error,Model model) {
 		
 		Mahasiswa mahasiswa = new Mahasiswa();
@@ -46,7 +46,7 @@ public class MahasiswaController {
 		
 		if (result == null) {
 			model.addAttribute("error", "akun tidak ditemukan");
-			return "redirect:/";
+			return "redirect:/loginMhs";
 		}
 		
 		httpSession.setAttribute("user", result);
