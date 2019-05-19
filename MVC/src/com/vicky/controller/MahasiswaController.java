@@ -97,7 +97,7 @@ public class MahasiswaController {
 		
 		if (user == null) {
 			model.addAttribute("error", "login terlebih dahulu untuk mengakses halaman");
-			return "redirect:/";
+			return "redirect:/loginMhs";
 		}
 		
 		List<Object[]> pesan = pesanService.getAllPesan(user);
